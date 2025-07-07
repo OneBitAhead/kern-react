@@ -4,7 +4,7 @@ A React Showcase for the [KERN UX](https://www.kern-ux.de/) Design System
 
 ## Installation
 
-* Run <code>npm install</code> to install dependencies like Vite, React and KERN UX
+* Run <code>npm install</code> to install dependencies like Vite, React, zustand and KERN UX
 * Run <code>npm run dev</code> to start the development server at http://localhost:5173
 
 ## Contents
