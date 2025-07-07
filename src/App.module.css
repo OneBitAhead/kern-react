@@ -1,0 +1,78 @@
+/* App.module.css */
+.layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 64px 1fr;
+  height: 100vh; /* Fill viewport height */
+  width: 100vw;  /* Fill viewport width */
+  overflow: hidden;
+}
+
+.header {
+  grid-area: header;
+  background: white;
+  color: black;
+  border-bottom:1px solid #eee;
+  box-shadow: 1px 1px 5px #ccc;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.headline {
+  flex: 1
+} 
+
+
+.sidebar {
+  grid-area: sidebar;
+  background: #f3f4f6;
+  padding: 1rem;
+  position: sticky;
+  top: 64px; /* Height of header */
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  border-right:1px solid #ccc;
+}
+
+/* Dark theme overrides */
+:global(html[data-kern-theme="dark"]) .header {
+  background: rgb(40, 0, 112);
+  color: #fff;
+}
+:global(html[data-kern-theme="dark"]) .sidebar {
+  background: var(--kern-color-layout-background-hued, #F7F7F9);
+  color: #fff;
+}
+
+
+.main {
+  grid-area: main;
+  padding: 1rem;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+}
+
+/* Responsive: stack sidebar below header on small screens */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-areas:
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .main {
+    height: calc(100vh - 64px);
+  }
+}

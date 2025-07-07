@@ -1,0 +1,92 @@
+ul.list {
+  list-style: none;
+  padding-left: 0;
+  /* Optional: removes default indentation */
+  margin: 0;
+  /* Optional: removes default margin */
+}
+
+.link {
+  margin: .25rem 0px 0px 0px;
+  border-radius: 6px;
+  padding: 5px;
+
+
+}
+
+.link:hover {
+  background: white;
+}
+
+.active {
+  background: rgb(40, 0, 112);
+}
+
+/* Remove hover effect on active link */
+.link.active:hover {
+  background: rgb(40, 0, 112);
+  ;
+  /* Same as .active background */
+  cursor: default;
+}
+
+.link a {
+  color: currentColor;
+  text-decoration: none;
+  width: 100%;
+}
+
+
+.link.active a {
+  color: white;
+  font-weight: bold;
+}
+
+
+
+.menuLink {
+  display: block;
+  /* Make link fill the li */
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  /* Remove underline */
+  transition: background 0.2s;
+}
+
+/* Dark theme overrides */
+:global(html[data-kern-theme="dark"]) .link:hover {
+  background: var(--kern-color-action-state-indicator-shade);
+  color: var(--kern-color-action-state-indicator-tint);
+}
+
+:global(html[data-kern-theme="dark"]) .link a:hover {
+  color: var(--kern-color-layout-text-inverse);
+  font-weight: normal;
+}
+
+
+.sidebarDivider {
+  display: flex;
+  align-items: center;
+  margin: 1.5em 0;
+}
+
+.dividerLabel {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 0 0.75em;
+  z-index: 1;
+  position: relative;
+}
+
+.sidebarDivider::before,
+.sidebarDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 0.5em;
+}
