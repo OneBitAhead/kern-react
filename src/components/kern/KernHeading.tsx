@@ -8,11 +8,14 @@ function KernHeading( {
     size?: string    
 }){
 
-    const validTextSizes = Object.values(HeadingTextSize);
-    const validClass = validTextSizes.includes(size) ? `kern-heading-`+size : 'kern-heading-large';
+    // Select text size from predefined options
+    const currentTextSize = Object.values(HeadingTextSize).filter( ts => size === ts.className)
+
+    const validClass = currentTextSize.length === 1 ? `kern-heading-`+size : 'kern-heading-large';
+    const Tag = (currentTextSize.length === 1) ? currentTextSize[0].tagName : 'h1';
 
     return (
-        <h1 className={validClass}>{children}</h1>       
+        <Tag className={validClass}>{children}</Tag>       
     )
 
 }
