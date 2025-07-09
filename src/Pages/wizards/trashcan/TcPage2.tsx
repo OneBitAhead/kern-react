@@ -19,11 +19,17 @@ const tcPage2 = () => {
 
 
     useEffect(()=>{
-      useTrashCanWizardStore.setState({leavingPageFunction: ()=>{
+      useTrashCanWizardStore.setState({leavingPageFunction: ( page: string|number )=>{
+
+        // Only validate form when next page is targeted
+        if(page !== 'next') return true;
         
         if(!formRef || !formRef.current) return true;
+
+        // reportValidity will cause inputs to show errors by themselves
         const isValid = (formRef.current as KernFormMethods).reportValidity();
         return isValid
+
       }})
       // delete leaving function
       return ()=>{

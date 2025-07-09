@@ -7,7 +7,7 @@ const useTrashCanWizardStore = create(
     // persiste in localStorage!
     persist(    
         
-    (set, get) => ({
+    (set, get: ()=>any) => ({
         pages: 4,
         page: 1,
         leavingPageFunction: null,
@@ -16,16 +16,16 @@ const useTrashCanWizardStore = create(
             const current = get().page;
             const leavingFunction = get().leavingPageFunction;
             if(typeof leavingFunction === "function"){
-                var result = await leavingFunction();
+                var result = await leavingFunction( 'next' );
                 if(result === false) return false;             
             }            
             if(current < max) set((state:any) => ({ page: state.page + 1 }));
         },
-        goToPage: async(page) => {         
+        goToPage: async(page:number) => {         
             const max = get().pages;
             const leavingFunction = get().leavingPageFunction;
             if(typeof leavingFunction === "function"){
-                var result = await leavingFunction();
+                var result = await leavingFunction( page );
                 if(result === false) return false;             
             }  
             if(page < max && page > 0)  set((state:any) => ({ page: page }));
@@ -40,7 +40,7 @@ const useTrashCanWizardStore = create(
             const current = get().page;
             const leavingFunction = get().leavingPageFunction;
             if(typeof leavingFunction === "function"){
-                var result = await leavingFunction();
+                var result = await leavingFunction( 'previous' );
                 if(result === false) return false;             
             }  
             if(current > 1) set((state:any) => ({ page: state.page - 1 }));
