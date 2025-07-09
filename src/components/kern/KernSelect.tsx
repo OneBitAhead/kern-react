@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 
 function KernSelect({
-    name,
+    id,
     label,
     disabled = false,
     required = false,
@@ -10,7 +10,6 @@ function KernSelect({
     children
 } : {
     id: string,
-    name: string,
     label: string,
     disabled?: boolean,
     readonly?: boolean,
@@ -33,15 +32,16 @@ function KernSelect({
 
     return (
         <div className={ `kern-form-input ${errorState ? 'kern-form-input--error' : ''}`}>
-            <label className="kern-label" htmlFor={name}>
+            <label className="kern-label" htmlFor={id}>
                 {label}
                 {required === false ? <span className="kern-label__optional">- Optional</span> : '' }
             </label>
             {hint ? <div className="kern-hint" id="select-hint">{hint}</div> : '' }
             <div className="kern-form-input__select-wrapper">
                 <select 
-                    className={ `kern-form-input__select ${errorState ? 'kern-form-input__select--error' : ''}`} 
-                    name={name}
+                    className={ `kern-form-input__select ${errorState ? 'kern-form-input__select--error' : ''}`}
+                    id={id}
+                    name={id}
                     disabled={disabled}
                     {...(hint ? { "aria-describedby": "select-hint" } : {})}
                     onInvalid={ handleInvalid } 

@@ -3,7 +3,7 @@ import { KernTable, KernHeading, KernText } from "../components/kern";
 function TableExample() {
 
     const columns = [
-        { id: 'dienstleistung', label: 'Dienstleistung' },
+        { id: 'dienstleistung', label: 'Dienstleistung', scope: 'row' },
         { id: 'gebuehr', label: 'Gebühr 2025' },
         { id: 'erhoehung', label: 'Erhöhung', type: 'numeric' }
     ];

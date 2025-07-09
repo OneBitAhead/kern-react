@@ -81,7 +81,7 @@ function KernInputDate({
     return(
         <>
 
-        <fieldset ref={fieldSetRef} className={ `kern-fieldset ${errorState ? 'kern-fieldset--error' : ''}`} aria-describedby="hint-text">
+        <fieldset ref={fieldSetRef} className={ `kern-fieldset ${errorState ? 'kern-fieldset--error' : ''}`} {...(hint ? { "aria-describedby": "hint-text" } : {})}>
             <legend className="kern-label">
                 {label}
                 {required === false ? <span className="kern-label__optional">- Optional</span> : '' }

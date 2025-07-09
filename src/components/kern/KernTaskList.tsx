@@ -41,13 +41,13 @@ function KernTaskList(
                     {entry.items.map((item:KernTaskListItem, itemIndex:number) => {
                         return (<li key={ [entryIndex, '--', itemIndex].join()}className="kern-task-list__item">
                             {item.number ? <span className="kern-number">{item.number}</span> : ''}
-                            <div className="kern-task-list__title" id="task1-title">
+                            <div className="kern-task-list__title" id={`task${item.number}-title`}>
                             {item.path ? 
-                                <a href="#" className="kern-link kern-link--stretched" aria-describedby="task1-status">{item.label}</a> :
+                                <a href="#" className="kern-link kern-link--stretched" aria-describedby={`task${item.number}-status`}>{item.label}</a> :
                                 <p className="kern-body">{item.label}</p>
                             }
                             {item.badge && validStatusNames.includes(item.badge.status || '') ? 
-                              <div className="kern-task-list__status" id="task1-status">
+                              <div className="kern-task-list__status" id={`task${item.number}-status`}>
                                 <span className={`kern-badge kern-badge--${item.badge.status}`}>
                                   <span className={`kern-icon kern-icon--sm kern-icon--${item.badge.status}`} aria-hidden="true"></span>
                                   <span className="kern-label kern-label--small">{item.badge.label}</span>

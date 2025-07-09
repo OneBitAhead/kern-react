@@ -16,11 +16,12 @@ function KernText( {
     const validClass = `kern-${textType}`;
 
     const validTextSizes = Object.values(TextSize);
-    const validSizeClass = validTextSizes.includes(size) ? `kern-${textType}-`+size : `kern-${textType}`;
+    const validSizeClass = ( validTextSizes.includes(size) && size !== '' ) ? `kern-${textType}-`+size : ``;
 
+    
  
     return (
-        <h1 className={`${validClass} ${validSizeClass}`}>{children}</h1>       
+        <p className={`${validClass} ${validSizeClass}`}>{children}</p>
     )
 
 }

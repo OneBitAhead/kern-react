@@ -18,15 +18,15 @@ function KernSidebar({ items = []}:{ items: Items[]}){
   return (
     
 
-        <nav>
+        <nav role="navigation">
           <ul className={styles.list}>
 
             {items.map((item, index) => {
 
               if(item.divider) return (
-                <div key={item.divider} className={styles.sidebarDivider}>
+                <li key={item.divider} className={styles.sidebarDivider} aria-hidden="true">
                     <span className={styles.dividerLabel}>{item.divider}</span>
-                </div>
+                </li>
               )
 
            

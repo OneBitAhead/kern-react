@@ -22,7 +22,7 @@ function KernSummary({
 
         <div className="kern-summary__header"> 
           {number ? <span className="kern-number">{number}</span> : '' }
-          <h3 className="kern-title kern-title--small" id="title">{label}</h3>
+          <h3 className="kern-title kern-title--small" id={`title${ number ? `-${number}` : ``}`}>{label}</h3>
         </div>
         
         <div className="kern-summary__body">

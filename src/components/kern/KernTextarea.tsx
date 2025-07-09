@@ -20,7 +20,7 @@ function KernTextarea ({
 
     return (
         <div className={ `kern-form-input ${error ? 'kern-form-input--error' : ''}`} >
-            <label className="kern-label" htmlFor="textarea">
+            <label className="kern-label" htmlFor={id}>
                 {label}
                 {required === false ? <span className="kern-label__optional">- Optional</span> : '' }
             </label>

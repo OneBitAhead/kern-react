@@ -22,7 +22,7 @@ function KernCard ({
       <>
       <article className="kern-card"> 
           <div className="kern-card__media">
-            <img src={img} alt={altText}/>
+            <img src={img} alt={altText || title}/>
           </div>
           <div className="kern-card__container">
             <header className="kern-card__header">
